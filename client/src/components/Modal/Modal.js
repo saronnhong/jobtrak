@@ -54,13 +54,11 @@ class Modal extends Component {
                 jobUrl: "",
                 dateApplied: ""
             }
-
         })
     }
 
     render() {
         const { jobApp } = this.state;
-
         return (
             <div>
                 <a className="waves-effect waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton" data-target="modal1">+ ADD JOB</a>
