@@ -61,11 +61,11 @@ class Applications extends Component {
         return (
             <div className="appContainer">
                 <div className="row">
-                    <div className="col s8 headerText">Job Applicatons</div>
-                    <div className="col s2">
+                    <div className="col s9 headerText">Job Applicatons</div>
+                    <div className="col s1">
                         <div class="input-field">
                             <input id="search" type="text" class="validate" />
-                            <label for="search">Search</label>
+                            <label for="search"><i class="material-icons">search</i></label>
                         </div>
                     </div>
                     <Modal onPress={this.onSubmit} />

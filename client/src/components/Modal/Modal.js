@@ -61,7 +61,7 @@ class Modal extends Component {
         const { jobApp } = this.state;
         return (
             <div>
-                <a className="waves-effect waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton" data-target="modal1">+ ADD JOB</a>
+                <a className="waves-effect waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton hvr-sweep-to-right" data-target="modal1">+ ADD JOB</a>
                 <div ref={Modal => { this.Modal = Modal }} id="modal1" className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
