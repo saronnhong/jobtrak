@@ -1,0 +1,9 @@
+.jobListingContainer{
+    padding: 0 30px;
+    border-radius: 5px;
+    width: 96%;
+    margin: 0 2%;
+    border: rgba(197, 197, 197, 0.7) solid 1px;
+    color: rgb(75,75,75, .9);
+}
+
