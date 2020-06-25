@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from '../../components/Modal';
 import JobListings from '../../components/JobListing';
 import API from '../../utils/API';
+import withAuth from '../../components/withAuth';
 import "./style.css";
 
 class Applications extends Component {
@@ -13,9 +14,10 @@ class Applications extends Component {
         source: "",
         jobUrl: "",
         dateApplied: "",
-        jobsData: null
+        jobsData: null,
+        user: localStorage.getItem('user')
     }
-    componentDidMount() {
+    componentDidMount() {       
         this.getJobsData();
     }
     onSubmit = (jobApp) => {
@@ -37,15 +39,17 @@ class Applications extends Component {
             location: this.state.location,
             source: this.state.source,
             jobUrl: this.state.jobUrl,
-            dateApplied: this.state.dateApplied
+            dateApplied: this.state.dateApplied,
+            user: this.state.user
         }).then(() => {
             this.getJobsData();
         })
     }
     getJobsData = () => {
-        API.getJobs().then(res => {
+        API.getJobsByUser(this.state.user).then(res => {
             this.setState({ jobsData: res.data.reverse() });
-        })
+        });
+        console.log(this.state.user);
     }
     changeDateFormat = () => {
         const date = new Date();
@@ -61,7 +65,7 @@ class Applications extends Component {
         return (
             <div className="appContainer">
                 <div className="row">
-                    <div className="col s9 headerText">Job Applicatons</div>
+        <div className="col s9 headerText">Job Applicatons</div>
                     <div className="col s1">
                         <div class="input-field">
                             <input id="search" type="text" class="validate" />
@@ -76,4 +80,4 @@ class Applications extends Component {
     }
 }
 
-export default Applications;
+export default withAuth(Applications);

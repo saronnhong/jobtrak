@@ -9,7 +9,8 @@ const JobSchema = new Schema({
     location: { type: String},
     dateApplied: { type: String },
     jobUrl: { type: String},
-    source: { type: String}
+    source: { type: String},
+    user: { type: String, required: true },
 });
 
 const Jobs = mongoose.model("Job", JobSchema);

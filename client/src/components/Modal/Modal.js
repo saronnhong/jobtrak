@@ -4,9 +4,9 @@ import "materialize-css/dist/css/materialize.min.css";
 import "./style.css";
 
 class Modal extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     state = {
         jobApp: {
             company: "",

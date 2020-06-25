@@ -1,17 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import Navbar from './components/Navbar';
 import Applications from './pages/Applications';
+import Login from './pages/Login';
+import CreateAccount from './pages/CreateAccount';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  return (
+    <Router>
       <div className="App">
         <Navbar />
-        <Applications />
+        <Switch>
+          <Route exact path="/" component={Applications} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={CreateAccount} />
+          <Route component={Applications} />
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;

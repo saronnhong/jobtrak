@@ -1,9 +1,12 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require('mongoose');
 const db = require('./models');
+const isAuthenticated = require("./config/isAuthenticated");
+const auth = require("./config/auth");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +24,30 @@ mongoose
   .catch(err => console.error(err));
 
 // Define API routes here
+// LOGIN ROUTE
+app.post('/api/login', (req, res) => {
+  auth
+    .logUserIn(req.body.user, req.body.password)
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(400).json(err));
+});
+// SIGNUP ROUTE
+app.post('/api/signup', (req, res) => {
+  db.User.create(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
+});
+// Any route with isAuthenticated is protected and you need a valid token
+// to access
+app.get('/api/user/:id', isAuthenticated, (req, res) => {
+  db.User.findById(req.params.id).then(data => {
+    if (data) {
+      res.json(data);
+    } else {
+      res.status(404).send({ success: false, message: 'No user found' });
+    }
+  }).catch(err => res.status(400).send(err));
+});
 app.post('/api/savejob/:id', function (req, res) {
   console.log(req.body);
   db.Job.create(req.body)
@@ -31,7 +58,11 @@ app.get('/api/savedjobs', (req, res) => {
   db.Job.find({})
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
-
+});
+app.get('/api/savedjobs/:user', (req, res) => {
+  db.Job.find({user: req.params.user})
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
 });
 app.get('/api/savedjobs/:id', (req, res) => {
   db.Job.findOne({ _id: req.params.id })
@@ -53,6 +84,9 @@ app.put('/api/updatejobs/:id', (req, res) => {
     })
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
+});
+app.get('/', isAuthenticated /* Using the express jwt MW here */, (req, res) => {
+  res.send('You are authenticated'); //Sending some response when authenticated
 });
 // Send every other request to the React app
 // Define any API routes before this runs
