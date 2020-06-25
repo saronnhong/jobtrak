@@ -39,7 +39,7 @@ app.post('/api/signup', (req, res) => {
 });
 // Any route with isAuthenticated is protected and you need a valid token
 // to access
-app.get('/api/user/:id', isAuthenticated, (req, res) => {
+app.get('/api/user/:id', (req, res) => {
   db.User.findById(req.params.id).then(data => {
     if (data) {
       res.json(data);
@@ -64,12 +64,11 @@ app.get('/api/savedjobs/:user', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
-app.get('/api/savedjobs/:id', (req, res) => {
-  db.Job.findOne({ _id: req.params.id })
-    .then(data => res.json(data))
-    .catch(err => res.status(400).json(err));
-
-});
+// app.get('/api/savedjobs/:id', (req, res) => {
+//   db.Job.find({ _id: req.params.id })
+//     .then(data => res.json(data))
+//     .catch(err => res.status(400).json(err));
+// });
 app.delete('/api/deletejobs/:id', (req, res) => {
   db.Job.findOneAndDelete({ _id: req.params.id })
     .then(console.log(req.params.id))

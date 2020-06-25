@@ -15,9 +15,9 @@ class Applications extends Component {
         jobUrl: "",
         dateApplied: "",
         jobsData: null,
-        user: localStorage.getItem('user')
+        user: ""
     }
-    componentDidMount() {       
+    componentDidMount() {
         this.getJobsData();
     }
     onSubmit = (jobApp) => {
@@ -46,10 +46,11 @@ class Applications extends Component {
         })
     }
     getJobsData = () => {
-        API.getJobsByUser(this.state.user).then(res => {
-            this.setState({ jobsData: res.data.reverse() });
+        const userID = this.props.user.username;
+        console.log(userID);
+        API.getJobsByUser(userID).then(res => {
+            this.setState({ jobsData: res.data }, console.log(res));
         });
-        console.log(this.state.user);
     }
     changeDateFormat = () => {
         const date = new Date();
@@ -65,7 +66,7 @@ class Applications extends Component {
         return (
             <div className="appContainer">
                 <div className="row">
-        <div className="col s9 headerText">Job Applicatons</div>
+                    <div className="col s9 headerText">Job Applicatons</div>
                     <div className="col s1">
                         <div class="input-field">
                             <input id="search" type="text" class="validate" />

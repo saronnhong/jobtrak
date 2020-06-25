@@ -13,9 +13,9 @@ export default {
   getJobs: function () {
     return axios.get("/api/savedjobs");
   },
-  getJobsById: function (id) {
-    return axios.get("api/savedjobs/" + id);
-  },
+  // getJobsById: function (id) {
+  //   return axios.get("api/savedjobs/" + id);
+  // },
   getJobsByUser: function (user) {
     return axios.get("api/savedjobs/" + user);
   },

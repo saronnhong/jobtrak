@@ -10,7 +10,7 @@ const JobSchema = new Schema({
     dateApplied: { type: String },
     jobUrl: { type: String},
     source: { type: String},
-    user: { type: String, required: true },
+    user: { type: String }
 });
 
 const Jobs = mongoose.model("Job", JobSchema);

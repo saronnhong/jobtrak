@@ -20,11 +20,8 @@ class Login extends Component {
             .then(res => {
                 // once user is logged in
                 // take them to their profile page
-                // this.props.history.replace(`/`);
-                // window.location.reload();
-                this.props.history.push({
-                    pathname: '/'
-                  })
+                this.props.history.replace(`/`);
+                window.location.reload();
             })
             .catch(err => {
                 alert(err.response.data.message)

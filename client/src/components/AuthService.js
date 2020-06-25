@@ -8,7 +8,7 @@ export default class AuthService {
         return axios.post('api/login', {user: user, password: password})
         .then(res => {
             // set the token once the user logs in
-            this.setToken(res.data.token, user);
+            this.setToken(res.data.token);
             // return the rest of the response
             return res;
         });
@@ -38,11 +38,10 @@ export default class AuthService {
         }
     }
 
-    setToken(idToken, user) {
+    setToken(idToken) {
         // Saves user token to localStorage
         axios.defaults.headers.common['Authorization'] = `Bearer ${idToken}`;
         localStorage.setItem('id_token', idToken);
-        localStorage.setItem('user', user);
     }
 
     getToken() {
@@ -54,7 +53,6 @@ export default class AuthService {
         // Clear user token and profile data from localStorage
         axios.defaults.headers.common['Authorization'] = null;
         localStorage.removeItem('id_token');
-        localStorage.removeItem('user');
         // this will reload the page and reset the state of the application
         window.location.reload('/');
     }
