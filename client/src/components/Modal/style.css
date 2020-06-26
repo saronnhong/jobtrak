@@ -1,26 +1,43 @@
 .addButton{
     margin: 20px 0;
 }
-
 .input-field{
     margin: 5px;
 }
 .modal { 
-    height: 80% !important ; 
-    width: 500px;
+    height: 85% !important ; 
+    width: 700px;
     max-height: 100% !important ; 
     overflow-y: hidden !important ;
+    border-radius: 20px;
 } 
 .modalTitle{
     font-size: 24px;
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
+    color: #80cbc4 ;
 }
 .modalBtn{
     width: 20%;
     text-align: center;
     margin-right: 10px !important;
-    
+}
+.modalContainer{
+  background-color: rgb(250,250,250,.8)!important;
+  padding: 0 10px !important;
+  /* margin: auto !important; */
+  margin-top: 5% !important;
+  overflow: hidden !important;
+}
+.modalLabelText{
+  margin-left: 5px !important;
+}
+.fontAwesomeModal{
+  margin-right: 5px !important;
+}
+.modalInput{
+  color: rgb(50,50,50,.8) !important;
+  margin-right: 100px !important;
 }
 
 /* Sweep To Right */

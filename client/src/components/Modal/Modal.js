@@ -10,10 +10,10 @@ class Modal extends Component {
     state = {
         jobApp: {
             company: "",
-            jobTitle: "",
+            jobTitle: " ",
             status: "",
             location: "",
-            source: "",
+            source: " ",
             jobUrl: ""
         }
     }
@@ -67,50 +67,53 @@ class Modal extends Component {
                         <div className="row">
                             <div className="modalTitle">Add New Job</div>
                         </div>
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="company" type="text" class="validate" value={jobApp.company} onChange={e => this.setState({ jobApp: { ...jobApp, company: e.target.value } })} />
-                                        <label for="company">Company</label>
+                        <div className="row">
+                            <form className="col s12">
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="company" type="text" className="validate modalInput" placeholder="Search Companies..." value={jobApp.company} onChange={e => this.setState({ jobApp: { ...jobApp, company: e.target.value } })} />
+                                        <label className="modalLabelText" for="company"><i class="far fa-building fontAwesomeModal"></i> Company</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="job_title" type="text" class="validate" value={jobApp.jobTitle} onChange={e => this.setState({ jobApp: { ...jobApp, jobTitle: e.target.value } })} />
-                                        <label for="job_title">Job Title</label>
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="job_title" type="text" className="modalInput" value={jobApp.jobTitle} onChange={e => this.setState({ jobApp: { ...jobApp, jobTitle: e.target.value } })} />
+                                        <label className="modalLabelText" for="job_title"><i class="fas fa-user-md fontAwesomeModal"></i> Job Title</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="status" type="text" class="validate" value={jobApp.status} onChange={e => this.setState({ jobApp: { ...jobApp, status: e.target.value } })} />
-                                        <label for="status">Status</label>
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="status" type="text" className="modalInput" value={jobApp.status} placeholder="Interested" onChange={e => this.setState({ jobApp: { ...jobApp, status: e.target.value } })} />
+                                        <label className="modalLabelText" for="status"><i class="far fa-file-alt fontAwesomeModal"></i> Status</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="location" type="text" class="validate" value={jobApp.location} onChange={e => this.setState({ jobApp: { ...jobApp, location: e.target.value } })} />
-                                        <label for="location">Location</label>
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="location" type="text" className="modalInput" value={jobApp.location} placeholder="San Diego, CA" onChange={e => this.setState({ jobApp: { ...jobApp, location: e.target.value } })} />
+                                        <label className="modalLabelText" for="location"><i class="fas fa-map-marker-alt fontAwesomeModal"></i> Location</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="source" type="text" class="validate" value={jobApp.source} onChange={e => this.setState({ jobApp: { ...jobApp, source: e.target.value } })} />
-                                        <label for="source">Source</label>
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="source" type="text" className="modalInput" value={jobApp.source} onChange={e => this.setState({ jobApp: { ...jobApp, source: e.target.value } })} />
+                                        <label className="modalLabelText" for="source"><i class="fab fa-sourcetree fontAwesomeModal"></i> Source</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="job_url" type="text" class="validate" value={jobApp.jobUrl} onChange={e => this.setState({ jobApp: { ...jobApp, company: e.target.value } })} />
-                                        <label for="job_url">Job Posting URL</label>
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="job_url" type="text" className="modalInput" placeholder="Where did you find this job?" value={jobApp.jobUrl} onChange={e => this.setState({ jobApp: { ...jobApp, jobUrl: e.target.value } })} />
+                                        <label className="modalLabelText" for="job_url"><i class="fas fa-laptop-code fontAwesomeModal"></i> Job Posting URL</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div className="modal-footer">
-                        <a className="modal-close waves-effect #ff8a80 red accent-1 btn modalBtn">Cancel</a>
-                        <a onClick={() => this.onSave()} className="modal-close waves-effect #80cbc4 teal lighten-3 btn modalBtn">Save</a>
+                    <div className="modal-footer ">
+                        <div className="row center modalFooter">
+                            <button className="modal-close waves-effect #ff8a80 red accent-1 btn modalBtn">Cancel</button>
+                            <button onClick={() => this.onSave()} className="modal-close waves-effect #80cbc4 teal lighten-3 btn modalBtn">Save</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
