@@ -38,18 +38,28 @@ class EditJobsModal extends Component {
             endingTop: "5%"
         };
         M.Modal.init(this.Modal, options);
-        
+
     }
 
     onUpdate = () => {
         this.props.onPress(this.state.jobApp);
     }
+    onDelete = (id) => {
+        this.props.onDelete(id);
+    }
 
     render() {
         const { jobApp } = this.state;
         return (
-            <div>
-                <a className="modal-trigger editIcon" data-target={this.props.id} ><i class="fas fa-edit "></i></a> 
+            <div className="editIconRow">
+                {/* <tr className="modal-trigger"data-target={this.props.id}>
+                    <td>company</td>
+                    <td>job title</td>
+                    <td>stuff</td>
+                    <td>stuff</td>
+                    <td>stuff</td>
+                </tr> */}
+                <a className="modal-trigger editIcon" data-target={this.props.id} ><i class="fas fa-edit "></i></a>
                 <div ref={Modal => { this.Modal = Modal }} id={this.props.id} className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
@@ -98,7 +108,8 @@ class EditJobsModal extends Component {
                     </div>
                     <div className="modal-footer ">
                         <div className="row center modalFooter">
-                            <button className="modal-close waves-effect #ff8a80 red accent-1 btn modalBtn">Cancel</button>
+                            <button onClick={() => this.onDelete(this.state.jobApp._id)} className="modal-close waves-effect #ff8a80 red accent-1 btn modalBtn">Delete</button>
+                            <button className="modal-close waves-effect #757575 grey darken-1 btn modalBtn">Cancel</button>
                             <button onClick={() => this.onUpdate()} className="modal-close waves-effect #80cbc4 teal lighten-3 btn modalBtn">Update</button>
                         </div>
 

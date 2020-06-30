@@ -41,11 +41,15 @@
 }
 .editIcon{
   /* color: rgb(50,50,50, .7); */
+  font-size: large;
 }
 .editIcon:hover{
   transition: ease-in;
   transition-duration: .3s;
   color: #00e676;
+}
+.editIconRow{
+  margin: 10px auto;
 }
 
 

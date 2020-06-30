@@ -26,7 +26,7 @@ class JobListing extends Component {
                 </thead>
                 <tbody>
                     {this.jobList.map(job => (
-                        <tr>
+                        <tr className="jobListingRow">
                             <td>{job.company}</td>
                             <td>{job.jobTitle}</td>
                             <td>{job.status}</td>
@@ -35,6 +35,7 @@ class JobListing extends Component {
                             <EditJobsModal
                                 id={job._id}
                                 onPress={this.props.onPress}
+                                onDelete={this.props.delete}
                                 company={job.company}
                                 jobTitle={job.jobTitle}
                                 status={job.status}
@@ -42,12 +43,6 @@ class JobListing extends Component {
                                 source={job.source}
                                 jobUrl={job.jobUrl}
                             />
-                            <a className="modal-trigger deleteBtn"
-                                onClick={() => this.props.delete(job._id)}
-                                data-target={this.props.id}>
-                                <i class="fas fa-trash"></i>
-                            </a>
-
                         </tr>
                     ))}
                 </tbody>
