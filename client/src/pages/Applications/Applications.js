@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from '../../components/Modal';
+import AddJobsModal from '../../components/AddJobsModal';
 import JobListings from '../../components/JobListing';
 import API from '../../utils/API';
 import withAuth from '../../components/withAuth';
@@ -14,11 +14,13 @@ class Applications extends Component {
         source: "",
         jobUrl: "",
         dateApplied: "",
-        jobsData: null,
-        user: ""
+        jobsData: [],
+        user: "",
+        _id: ""
     }
     componentDidMount() {
         this.getJobsData();
+        this.setState({ user: this.props.user.username });
     }
     onSubmit = (jobApp) => {
         this.setState({
@@ -46,11 +48,47 @@ class Applications extends Component {
         })
     }
     getJobsData = () => {
-        const userID = this.props.user.username;
-        console.log(userID);
-        API.getJobsByUser(userID).then(res => {
-            this.setState({ jobsData: res.data }, console.log(res));
+        const username = this.props.user.username;
+        API.getJobsByUser(username).then(res => {
+            this.setState({ jobsData: res.data.reverse() });
         });
+    }
+    onUpdate = (jobApp) => {
+        this.setState({
+            company: jobApp.company,
+            jobTitle: jobApp.jobTitle,
+            status: jobApp.status,
+            location: jobApp.location,
+            source: jobApp.source,
+            jobUrl: jobApp.jobUrl,
+            dateApplied: jobApp.dateApplied,
+            _id: jobApp._id
+        }, this.updateDB);
+    }
+    updateDB = () => {
+        API.updateJobs({
+            company: this.state.company,
+            jobTitle: this.state.jobTitle,
+            status: this.state.status,
+            location: this.state.location,
+            source: this.state.source,
+            jobUrl: this.state.jobUrl,
+            dateApplied: this.state.dateApplied,
+            user: this.state.user,
+            _id: this.state._id
+        }).then(() => {
+            this.setState({
+                jobsData: [1,2,3] //dummy change needed in order for component to update automatically
+            }, this.getJobsData())
+        })
+    }
+    onDelete = (id) => {
+        API.deleteJobs(id)
+            .then(() => {
+                this.getJobsData();
+            }
+
+            )
     }
     changeDateFormat = () => {
         const date = new Date();
@@ -62,6 +100,7 @@ class Applications extends Component {
         }).format(date);
         return formattedDate;
     }
+
     render() {
         return (
             <div className="appContainer">
@@ -73,8 +112,9 @@ class Applications extends Component {
                             <label for="search"><i class="material-icons">search</i></label>
                         </div>
                     </div>
-                    <Modal onPress={this.onSubmit} />
-                    {this.state.jobsData ? <JobListings key={this.state.jobsData.length} appliedJobs={this.state.jobsData} /> : null}
+                    <AddJobsModal onPress={this.onSubmit} />
+                    <JobListings key={this.state.jobsData.length} onPress={this.onUpdate} delete={this.onDelete} appliedJobs={this.state.jobsData} />
+
                 </div>
             </div>
         )

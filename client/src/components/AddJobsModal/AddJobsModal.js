@@ -3,7 +3,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import "./style.css";
 
-class Modal extends Component {
+class AddJobsModal extends Component {
     // constructor(props) {
     //     super(props);
     // }
@@ -61,7 +61,7 @@ class Modal extends Component {
         const { jobApp } = this.state;
         return (
             <div>
-                <a className="waves-effect waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton hvr-sweep-to-right" data-target="modal1">+ ADD JOB</a>
+                <a className="waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton hvr-sweep-to-right" data-target="modal1">+ ADD JOB</a>
                 <div ref={Modal => { this.Modal = Modal }} id="modal1" className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
@@ -121,4 +121,4 @@ class Modal extends Component {
     }
 }
 
-export default Modal;
+export default AddJobsModal;

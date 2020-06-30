@@ -28,6 +28,8 @@ export default {
     return axios.post("/api/savejob/" + jobData._id, jobData);
   },
   updateJobs: function (jobData) {
+    console.log("from the server")
+    console.log(jobData);
     return axios.put("/api/updatejobs/" + jobData._id, jobData);
   }
 };

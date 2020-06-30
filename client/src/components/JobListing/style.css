@@ -7,3 +7,15 @@
     color: rgb(75,75,75, .9);
 }
 
+.deleteBtn:hover{
+    color: rgba(255, 77, 77, 0.9);
+    transition: ease-in;
+    transition-duration: .3s;
+}
+.deleteBtn{
+    /* color: rgb(50,50,50, .7); */
+}
+.td{
+    margin-left: 200px !important;
+}
+

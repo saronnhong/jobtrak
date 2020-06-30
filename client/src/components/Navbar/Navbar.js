@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuthService from '../AuthService';
-import axios from 'axios';
 import "./style.css";
 
 class Navbar extends Component {
@@ -11,16 +10,26 @@ class Navbar extends Component {
     logOut = () => {
         this.Auth.logout();
     }
+    
+    
+        
+    
     render() {
+        const isLoggedIn = localStorage.getItem('id_token');
         return (
             <nav className="#0288d1 light-blue darken-2">
                 <div className="nav-wrapper navContainer">
                     <a href="#!" className="brand-logo "><i class="material-icons large">apps</i>JobTrak</a>
                     <ul className="right hide-on-med-and-down">
-                        <li><a href="/login"><i className="material-icons">face</i></a></li>
-                        <li><a href="/analyze"><i className="material-icons">insert_chart</i></a></li>
-                        <li><a onClick={() => this.logOut()}><i className="material-icons">directions_run</i></a></li>
+                        <li><a href="/tracker">Tracker</a></li>
+                        <li><a href="/contacts">Contacts</a></li>
+                        <li><a href="/tasks">Tasks</a></li>
+                        <li><a href="/analyze">Analytics</a></li>
+                        <li>
+                            {isLoggedIn ? <a onClick={() => this.logOut()}>Log Out</a> : <a href="/login">Log In</a>}
+                        </li>
                         <li><a href="mobile.html"><i className="material-icons">more_vert</i></a></li>
+
                     </ul>
                 </div>
             </nav>

@@ -17,9 +17,9 @@ if (process.env.NODE_ENV === "production") {
 }
 mongoose
   // for the app to work as a deployed app with mLAB MongoDB provision on Heroku, use:
-  //  .connect(process.env.MONGODB_URI || 'mongodb://user:password123@ds035844.mlab.com:35844/heroku_mxr3c7lz', { useNewUrlParser: true})
+   .connect(process.env.MONGODB_URI || 'mongodb://user:password123@ds211694.mlab.com:11694/heroku_0m0btlct', { useNewUrlParser: true})
   // for LOCAL Testing, use:
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/jobTrakDB', { useNewUrlParser: true })
+  // .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/jobTrakDB', { useNewUrlParser: true })
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.error(err));
 
