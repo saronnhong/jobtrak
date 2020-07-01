@@ -52,7 +52,7 @@ class EditJobsModal extends Component {
         const { jobApp } = this.state;
         return (
             <div className="editIconRow">
-                <a className="modal-trigger editIcon" data-target={this.props.id} ><i class="fas fa-eraser "></i></a>
+                <a alt="edit" className="modal-trigger editIcon hvr-grow-shadow hvr-sweep-to-right-blue" data-target={this.props.id} ><i class="fas fa-pen "></i></a>
                 <div ref={Modal => { this.Modal = Modal }} id={this.props.id} className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
@@ -101,9 +101,9 @@ class EditJobsModal extends Component {
                     </div>
                     <div className="modal-footer ">
                         <div className="row center modalFooter">
-                            <button onClick={() => this.onDelete(this.state.jobApp._id)} className="modal-close waves-effect #ff8a80 red accent-1 btn modalBtn">Delete</button>
-                            <button className="modal-close waves-effect #757575 grey darken-1 btn modalBtn">Cancel</button>
-                            <button onClick={() => this.onUpdate()} className="modal-close waves-effect #80cbc4 teal lighten-3 btn modalBtn">Update</button>
+                            <button onClick={() => this.onDelete(this.state.jobApp._id)} className="modal-close #ff8a80 red accent-1 btn modalBtn">Delete</button>
+                            <button className="modal-close #757575 grey darken-1 btn modalBtn">Cancel</button>
+                            <button onClick={() => this.onUpdate()} className="modal-close #80cbc4 teal lighten-3 btn modalBtn">Update</button>
                         </div>
 
                     </div>
