@@ -52,14 +52,7 @@ class EditJobsModal extends Component {
         const { jobApp } = this.state;
         return (
             <div className="editIconRow">
-                {/* <tr className="modal-trigger"data-target={this.props.id}>
-                    <td>company</td>
-                    <td>job title</td>
-                    <td>stuff</td>
-                    <td>stuff</td>
-                    <td>stuff</td>
-                </tr> */}
-                <a className="modal-trigger editIcon" data-target={this.props.id} ><i class="fas fa-edit "></i></a>
+                <a className="modal-trigger editIcon" data-target={this.props.id} ><i class="fas fa-eraser "></i></a>
                 <div ref={Modal => { this.Modal = Modal }} id={this.props.id} className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
