@@ -60,3 +60,9 @@
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
+  @media only screen and (max-width: 600px) {
+    .loginContainer{
+      width: 100vw;
+    }
+    
+    }
