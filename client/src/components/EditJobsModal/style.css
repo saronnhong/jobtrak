@@ -8,7 +8,7 @@
     height: 85% !important ; 
     width: 700px;
     max-height: 100% !important ; 
-    overflow-y: hidden !important ;
+    /* overflow-y: hidden !important ; */
     border-radius: 20px;
 } 
 .modalTitle{
@@ -27,7 +27,7 @@
   padding: 0 10px !important;
   /* margin: auto !important; */
   margin-top: 5% !important;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
 }
 .modalLabelText{
   margin-left: 5px !important;
