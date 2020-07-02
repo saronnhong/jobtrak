@@ -21,7 +21,7 @@ class JobListing extends Component {
                         <th className="tableHead">Status</th>
                         <th className="tableHead">Location</th>
                         <th className="tableHead">Date Applied</th>
-                        <th className="tableHead" width="50px"></th>
+                        {/* <th className="tableHead" width="50px"></th> */}
                     </tr>
                 </thead>
                 <tbody>

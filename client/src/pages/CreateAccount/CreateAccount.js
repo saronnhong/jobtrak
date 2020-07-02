@@ -11,7 +11,7 @@ class CreateAccount extends Component {
         }
     }
     createAccountSubmit = () => {
-        console.log(this.state.login.user);
+        // console.log(this.state.login.user);
         if(this.state.login.password === this.state.login.reenterpassword){
             API.signUpUser(
                 this.state.login.user,
