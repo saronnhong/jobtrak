@@ -16,7 +16,7 @@ class JobListing extends Component {
             <table className="jobListingContainer centered responsive-table striped">
                 <thead>
                     <tr>
-                        <th className="tableHead">Company Name</th>
+                        <th className="tableHead">Company</th>
                         <th className="tableHead">Job Title</th>
                         <th className="tableHead">Status</th>
                         <th className="tableHead">Location</th>
