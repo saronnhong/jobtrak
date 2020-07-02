@@ -16,22 +16,22 @@ class JobListing extends Component {
             <table className="jobListingContainer centered responsive-table striped">
                 <thead>
                     <tr>
-                        <th width="30%">Company Name</th>
-                        <th>Job Title</th>
-                        <th>Status</th>
-                        <th>Location</th>
-                        <th>Date Applied</th>
-                        <th width="50px"></th>
+                        <th className="tableHead">Company Name</th>
+                        <th className="tableHead">Job Title</th>
+                        <th className="tableHead">Status</th>
+                        <th className="tableHead">Location</th>
+                        <th className="tableHead">Date Applied</th>
+                        <th className="tableHead" width="50px"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.jobList.map(job => (
                         <tr className="jobListingRow">
-                            <td>{job.company}</td>
-                            <td>{job.jobTitle}</td>
-                            <td>{job.status}</td>
-                            <td>{job.location}</td>
-                            <td>{job.dateApplied}</td>
+                            <td className="tableData">{job.company}</td>
+                            <td className="tableData">{job.jobTitle}</td>
+                            <td className="tableData">{job.status}</td>
+                            <td className="tableData">{job.location}</td>
+                            <td className="tableData">{job.dateApplied}</td>
                             <EditJobsModal
                                 id={job._id}
                                 onPress={this.props.onPress}
