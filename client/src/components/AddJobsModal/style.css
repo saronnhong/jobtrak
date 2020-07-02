@@ -84,16 +84,18 @@
   @media only screen and (max-width: 600px) {
     .modal{
       width: 100vw !important;
+      height: 100% !important;
     }
     .mondal-content {
-      height: 98vh !important;
+      /* height: 98vh !important; */
     }
     .mondalContainer{
       margin-top: 3% !important;
+      /* height: 100vh !important; */
     }
     .modalInput{
-      height: 25px !important;
-      font-size: 14px !important;
+      height: 20px !important;
+      font-size: 12px !important;
     }
     
   }
