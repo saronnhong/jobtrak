@@ -116,4 +116,15 @@
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+@media only screen and (max-width: 600px) {
+  .modalBtn{
+    width: 90px;
+  }
+  .editIcon{
+    margin: 0 100px !important;
+    font-size: x-small;
+    padding: 5px 7px;
+  }
+}
  

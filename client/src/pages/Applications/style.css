@@ -8,3 +8,12 @@
     margin: 0 5%;
 }
 
+@media only screen and (max-width: 600px) {
+    .headerText{
+        text-align: center;
+        margin: 10px auto 0;
+    }
+    .searchField{
+        margin: 0 15vw
+    }
+}

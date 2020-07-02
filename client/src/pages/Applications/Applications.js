@@ -105,9 +105,9 @@ class Applications extends Component {
         return (
             <div className="appContainer">
                 <div className="row">
-                    <div className="col s9 headerText">Job Applicatons</div>
-                    <div className="col s1">
-                        <div class="input-field">
+                    <div className="col s12 m9 l9 headerText">Job Applicatons</div>
+                    <div className="col s4 m1 l1 searchField">
+                        <div class="input-field searchField">
                             <input id="search" type="text" class="validate" />
                             <label for="search"><i class="material-icons">search</i></label>
                         </div>

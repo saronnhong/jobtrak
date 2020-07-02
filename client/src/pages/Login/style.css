@@ -64,5 +64,8 @@
     .loginContainer{
       width: 100vw;
     }
+    .loginBtn{
+      width: 100px;
+    }
     
     }
