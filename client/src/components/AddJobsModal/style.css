@@ -84,14 +84,16 @@
   @media only screen and (max-width: 600px) {
     .modal{
       width: 100vw !important;
-      overflow-y: scroll !important;
     }
     .mondal-content {
       height: 98vh !important;
     }
     .mondalContainer{
       margin-top: 3% !important;
-      overflow-y: scroll !important;
+    }
+    .modalInput{
+      height: 25px !important;
+      font-size: 14px !important;
     }
     
   }
