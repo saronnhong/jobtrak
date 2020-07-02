@@ -17,7 +17,7 @@ class CreateAccount extends Component {
                 this.state.login.user,
                 this.state.login.password
             ).then(() => {
-                alert("New user has been signed up.");
+                // alert("New user has been signed up.");
                 this.props.history.replace('/login');
             })
         
