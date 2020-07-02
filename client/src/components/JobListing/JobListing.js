@@ -12,15 +12,16 @@ class JobListing extends Component {
     jobList = this.state.jobApp;
 
     render() {
+        console.log(window.innerWidth);
         return (
             <table className="jobListingContainer centered responsive-table striped">
                 <thead>
                     <tr>
-                        <th className="tableHead">Company</th>
+                        {window.innerWidth < 600 ? <th className="tableHead">Company</th> : <th className="tableHead">Company Name</th>}
                         <th className="tableHead">Job Title</th>
                         <th className="tableHead">Status</th>
                         <th className="tableHead">Location</th>
-                        <th className="tableHead">Date Applied</th>
+                        {window.innerWidth < 600 ? <th className="tableHead">Date</th> : <th className="tableHead">Date Applied</th>}
                         {/* <th className="tableHead" width="50px"></th> */}
                     </tr>
                 </thead>
