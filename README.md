@@ -19,6 +19,10 @@ JobTrak is deployed on Heroku. User must go to https://jobtrakr.herokuapp.com/ t
 ## Deployed
 https://jobtrakr.herokuapp.com/ 
 
+## Examples
+![picture alt](jobtrak_applications-min.jpg)
+
+
 ## Test Account
 User: Test
 Password: test12345
