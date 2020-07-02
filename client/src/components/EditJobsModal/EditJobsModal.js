@@ -33,11 +33,15 @@ class EditJobsModal extends Component {
             inDuration: 250,
             outDuration: 250,
             opacity: 0.5,
-            dismissible: true,
+            dismissible: false,
             startingTop: "4%",
             endingTop: "5%"
         };
         M.Modal.init(this.Modal, options);
+        // let instance = M.Modal.getInstance(this.Modal);
+        // instance.open();
+        // instance.close();
+        // instance.destroy();
 
     }
 
@@ -52,7 +56,7 @@ class EditJobsModal extends Component {
         const { jobApp } = this.state;
         return (
             <div className="editIconRow">
-                <a alt="edit" className="modal-trigger editIcon hvr-grow-shadow hvr-sweep-to-right-blue" data-target={this.props.id} ><i class="fas fa-pen "></i></a>
+                {/* <a alt="edit" className="modal-trigger editIcon hvr-grow-shadow hvr-sweep-to-right-blue" data-target={this.props.id} ><i class="fas fa-pen "></i></a> */}
                 <div ref={Modal => { this.Modal = Modal }} id={this.props.id} className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">
@@ -101,11 +105,18 @@ class EditJobsModal extends Component {
                     </div>
                     <div className="modal-footer ">
                         <div className="row center modalFooter">
-                            <button onClick={() => this.onDelete(this.state.jobApp._id)} className="modal-close #ff8a80 red accent-1 btn modalBtn">Delete</button>
-                            <button className="modal-close #757575 grey darken-1 btn modalBtn">Cancel</button>
-                            <button onClick={() => this.onUpdate()} className="modal-close #80cbc4 teal lighten-3 btn modalBtn">Update</button>
+                            <button onClick={() => {
+                                this.onDelete(this.state.jobApp._id);
+                                M.Modal.getInstance(this.Modal).close();
+                            }}
+                                className="modal-close #ff8a80 red accent-1 btn modalBtn">Delete</button>
+                            <button onClick={() => M.Modal.getInstance(this.Modal).close()} className="modal-close #757575 grey darken-1 btn modalBtn">Cancel</button>
+                            <button onClick={() => {
+                                this.onUpdate();
+                                M.Modal.getInstance(this.Modal).close();
+                            }}
+                                className="modal-close #80cbc4 teal lighten-3 btn modalBtn">Update</button>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@ class AddJobsModal extends Component {
             inDuration: 250,
             outDuration: 250,
             opacity: 0.5,
-            dismissible: true,
+            dismissible: false,
             startingTop: "4%",
             endingTop: "5%"
         };
@@ -61,7 +61,7 @@ class AddJobsModal extends Component {
         const { jobApp } = this.state;
         return (
             <div>
-                <a className="waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton hvr-sweep-to-right" data-target="modal1">+ ADD JOB</a>
+                <a className="waves-light btn modal-trigger btn #ffab40 orange accent-2 addButton hvr-sweep-to-right" onClick={()=>M.Modal.getInstance(this.Modal).open()}data-target="modal1">+ ADD JOB</a>
                 <div ref={Modal => { this.Modal = Modal }} id="modal1" className="modal modal-fixed-footer" >
                     <div className="modal-content modalContainer">
                         <div className="row">

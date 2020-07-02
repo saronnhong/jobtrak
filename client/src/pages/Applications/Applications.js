@@ -78,7 +78,7 @@ class Applications extends Component {
             _id: this.state._id
         }).then(() => {
             this.setState({
-                jobsData: [1,2,3] //dummy change needed in order for component to update automatically
+                jobsData: [] //dummy change needed in order for component to update automatically
             }, this.getJobsData())
         })
     }
@@ -90,6 +90,7 @@ class Applications extends Component {
 
             )
     }
+
     changeDateFormat = () => {
         const date = new Date();
         const formattedDate = Intl.DateTimeFormat('en-US', {

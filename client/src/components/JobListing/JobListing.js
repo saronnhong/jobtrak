@@ -26,7 +26,7 @@ class JobListing extends Component {
                 </thead>
                 <tbody>
                     {this.jobList.map(job => (
-                        <tr className="jobListingRow">
+                        <tr className="jobListingRow modal-trigger" data-target={job._id}>
                             <td className="tableData">{job.company}</td>
                             <td className="tableData">{job.jobTitle}</td>
                             <td className="tableData">{job.status}</td>
@@ -36,6 +36,7 @@ class JobListing extends Component {
                                 id={job._id}
                                 onPress={this.props.onPress}
                                 onDelete={this.props.delete}
+                                onCancel={this.props.cancel}
                                 company={job.company}
                                 jobTitle={job.jobTitle}
                                 status={job.status}
