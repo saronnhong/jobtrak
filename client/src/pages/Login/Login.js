@@ -10,14 +10,29 @@ class Login extends Component {
     state = {
         login: {
             user: "",
-            password: ""
+            password: "",
+            checkbox: false
+        }
+    }
+    componentDidMount(){
+        const isSaved = localStorage.getItem('saved_user');
+        if(isSaved){
+            this.setState({login: {user: isSaved, checkbox: true}})
         }
     }
     
     logInSubmit = (event) => {
         // event.preventDefault();
+        if(this.state.login.checkbox){
+            localStorage.setItem('saved_user', this.state.login.user);
+            
+        }else{
+            localStorage.removeItem('saved_user');
+        };
         this.Auth.login(this.state.login.user, this.state.login.password)
             .then(res => {
+                
+                
                 // once user is logged in
                 // take them to their profile page
                 this.props.history.replace(`/`);
@@ -26,6 +41,10 @@ class Login extends Component {
             .catch(err => {
                 alert(err.response.data.message)
             });
+    }
+    toggleCheckboxChange = () => {
+        this.setState({login: {...this.state.login, checkbox: !this.state.login.checkbox}});
+        
     }
 
     render() {
@@ -50,8 +69,8 @@ class Login extends Component {
                 <div className="row">
                     <div className="col s6">
                         <label>
-                            <input type="checkbox" />
-                            <span>Remember me</span>
+                            <input id="checkbox" type="checkbox" checked={login.checkbox} onChange={()=> this.toggleCheckboxChange()}/>
+                            <span><label for="checkbox">Remember me</label></span>
                         </label>
                     </div>
                     <div className="col s6">
