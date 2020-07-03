@@ -39,7 +39,7 @@ app.post('/api/signup', (req, res) => {
 });
 // Any route with isAuthenticated is protected and you need a valid token
 // to access
-app.get('/api/user/:id', isAuthenticated, (req, res) => {
+app.get('/api/user/:id', (req, res) => {
   db.User.findById(req.params.id).then(data => {
     if (data) {
       res.json(data);
@@ -59,7 +59,7 @@ app.get('/api/savedjobs', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
-app.get('/api/savedjobs/:user', isAuthenticated, (req, res) => {
+app.get('/api/savedjobs/:user', (req, res) => {
   db.Job.find({user: req.params.user})
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
