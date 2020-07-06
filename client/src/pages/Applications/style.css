@@ -24,12 +24,19 @@
     color: rgb(0,0,0,.7);
 }
 
+
 @media only screen and (max-width: 600px) {
     .headerText{
         text-align: center;
         margin: 10px auto 0;
     }
     .searchField{
-        margin: 0 15vw
+        margin: 0 0 0 400px;
+
     }
+    .secondRow{
+        margin-bottom: 0 !important;
+    }
+    
+    
 }
