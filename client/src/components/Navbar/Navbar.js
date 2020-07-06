@@ -22,13 +22,13 @@ class Navbar extends Component {
                     <a href="#!" className="brand-logo "><i class="material-icons large">apps</i>JobTrak</a>
                     <ul className="right hide-on-med-and-down">
                         <li><a href="/tracker">Tracker</a></li>
-                        <li><a href="/contacts">Contacts</a></li>
+                        {/* <li><a href="/contacts">Contacts</a></li>
                         <li><a href="/tasks">Tasks</a></li>
-                        <li><a href="/analyze">Analytics</a></li>
+                        <li><a href="/analyze">Analytics</a></li> */}
                         <li>
                             {isLoggedIn ? <a onClick={() => this.logOut()}>Log Out</a> : <a href="/login">Log In</a>}
                         </li>
-                        <li><a href="mobile.html"><i className="material-icons">more_vert</i></a></li>
+                        <li><a href="#"><i className="material-icons">more_vert</i></a></li>
 
                     </ul>
                 </div>

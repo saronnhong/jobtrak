@@ -16,7 +16,8 @@ class Applications extends Component {
         dateApplied: "",
         jobsData: [],
         user: "",
-        _id: ""
+        _id: "",
+        searchInputField: ""
     }
     componentDidMount() {
         this.getJobsData();
@@ -101,17 +102,34 @@ class Applications extends Component {
         }).format(date);
         return formattedDate;
     }
+    searchInput = (word) => {
+        const jobsDatabase = this.state.jobsData;
+        const newArr = [];
+        for(let i = 0; i< jobsDatabase.length; i++){
+            if(jobsDatabase[i].jobTitle.toLowerCase().includes(word.toLowerCase()) || jobsDatabase[i].company.toLowerCase().includes(word.toLowerCase()) || jobsDatabase[i].location.toLowerCase().includes(word.toLowerCase())){
+                newArr.push(jobsDatabase[i]);
+            }
+        }
+        this.setState({jobsData: newArr});
+    }
 
     render() {
         return (
             <div className="appContainer">
                 <div className="row">
-                    <div className="col s12 m9 l9 headerText">Job Applicatons</div>
-                    <div className="col s4 m1 l1 searchField">
-                        <div class="input-field searchField">
-                            <input id="search" type="text" class="validate" />
-                            <label for="search"><i class="material-icons">search</i></label>
+                    <div className="col s12 m9 l8 headerText">Job Applicatons</div>
+                    <div className="col s4 m2 l3 searchField">
+                        <div className="row">
+                            <div className="col s8">
+                                <div class="input-field searchField">
+                                    <input id="search" placeholder="Search" type="text" class="validate" value={this.state.searchInputField} onChange={e => this.setState({  ...this.state.searchInputField, searchInputField: e.target.value  })}/>
+                                </div>
+                            </div>
+                            <div className="col s2 searchBtn">
+                                <buttton onClick={() => this.searchInput(this.state.searchInputField) }><i class="material-icons searchIcon">search</i></buttton>
+                            </div>
                         </div>
+
                     </div>
                     <AddJobsModal onPress={this.onSubmit} />
                     <JobListings key={this.state.jobsData.length} onPress={this.onUpdate} delete={this.onDelete} appliedJobs={this.state.jobsData} />
