@@ -35,8 +35,10 @@
 
     }
     .secondRow{
+        margin: auto 12vw !important;
         margin-bottom: 0 !important;
     }
+    
     
     
 }

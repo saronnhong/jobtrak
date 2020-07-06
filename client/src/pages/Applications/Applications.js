@@ -119,17 +119,20 @@ class Applications extends Component {
                 <div className="row">
                     <div className="col s12 m9 l8 headerText">Job Applicatons</div>
                     <div className="row col s12 l4 secondRow">
-                        <div class="input-field col s4 searchField">
-                            <input id="search" placeholder="Search" type="text" class="validate" value={this.state.searchInputField} onChange={e => this.setState({ ...this.state.searchInputField, searchInputField: e.target.value })} />
+                        <div className="row searchField">
+                            <div class="input-field col s4 ">
+                                <input id="search" placeholder="Search" type="text" class="validate" value={this.state.searchInputField} onChange={e => this.setState({ ...this.state.searchInputField, searchInputField: e.target.value })} />
+                            </div>
+                            <div className="col s1 searchBtn">
+                                <buttton onClick={() => this.searchInput(this.state.searchInputField)}><i class="material-icons searchIcon">search</i></buttton>
+                            </div>
+                            <div className="col s4">
+                                <AddJobsModal onPress={this.onSubmit} />
+                            </div>
                         </div>
-                        <div className="col s1 searchBtn">
-                            <buttton onClick={() => this.searchInput(this.state.searchInputField)}><i class="material-icons searchIcon">search</i></buttton>
-                        </div>
-                        <div className="col s4">
-                            <AddJobsModal onPress={this.onSubmit} />
-                        </div>
+
                     </div>
-                    
+
 
                 </div>
                 <div className='row'>
